@@ -3,12 +3,11 @@
 <!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="robots" content="noindex"/><title>ar</title>
 <script src="a.js"></script>
 
-</head><body onload="newSite()">
+</head><body onload="new()">
 <div style="border: 2px solid #ccc;padding: 1em;max-width: 350px;min-height: 110px;max-height: 110px">
 	<img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" id="simg" width="110" height="110" style="float:left;margin-right:10px;"/>
 <a href= "" id="link"><p id="title"></p></a>
 <p id="date"></p>
-<div style="border-radius: 3px; padding: 0px 10px; display: inline; white-space: nowrap; background-color: #ccc; font-size: 16px; font-family: monospace; color: black;">Archive</div>
 </div>
 
 
@@ -20,7 +19,7 @@
 
 <script type="text/javascript">
 
-function newSite() {
+function new() {
 var rd = Math.floor(Math.random() * 257);
 var rdi = Math.floor(Math.random() * 5);
 document.getElementById("title").innerHTML = sTitle[rd];
@@ -29,5 +28,5 @@ document.getElementById("link").href = sLink[rd];
 document.getElementById("simg").src = sImg[rdi];
 }</script>
 
-<p><center><input type="button" name="" value="Surprise" onclick="newSite()"></input>
+<p><center><input type="button" name="" value="Surprise" onclick="new()"></input>
 </body></html>
