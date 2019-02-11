@@ -33,10 +33,10 @@ body {overflow:hidden;}
 </style>
 </head><body>
 <script>
-var t = randomDate(new Date(2006, 05, 1), new Date())
+var t = rDate(new Date(2006, 05, 1), new Date())
 console.log(t)
 
-function randomDate(start, end) {
+function rDate(start, end) {
     var d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
@@ -48,7 +48,7 @@ function randomDate(start, end) {
 }
 
 function newSite() {
-	t =randomDate(new Date(2006, 05, 1), new Date());
+	t =rDate(new Date(2006, 05, 1), new Date());
 	document.getElementById('myIframe').src = t;
 }    
 
