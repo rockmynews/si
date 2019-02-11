@@ -13,10 +13,10 @@ function rDate(start, end) {
 }
 function newS() {
 	t =rDate(new Date(2006, 05, 1), new Date());
-	document.getElementById('Iframe').src = t;
+	document.getElementById('frame').src = t;
 }    
 window.onload = function(e) {
-	document.getElementsByTagName("iframe")[0].src= t;
+	document.getElementById('frame').src= t;
 };
 </script>
 <center><div class="cc"><div onClick="newS()" class="bn" title="Get Inspired">Get Inspired</div></center><br>
