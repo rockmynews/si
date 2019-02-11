@@ -35,14 +35,15 @@
 	<a href= "http://media.radiosai.org/journals/Archives/darshan-video/Good-Morning-with-Gayathri-Mantra.htm" ><p>What Gayathri Mantra Can Do To Us</p></a>
 	<p>Posted on: Jan 20, 2019</p>
 </div>
-<script type="text/javascript">
+<script>
 function snew() {
 var rd = Math.floor(Math.random() * 257);
 var rdi = Math.floor(Math.random() * 5);
 document.getElementById("title").innerHTML = sTitle[rd];
+document.getElementById("title").title = sTitle[rd];
 document.getElementById("date").innerHTML = sDate[rd];
 document.getElementById("link").href = sLink[rd];
 document.getElementById("simg").src = sImg[rdi];
 }</script>
-<p><center><input type="button" name="" value="Surprise" onclick="snew()"></input></center></p>
+<center><p><input type="button" value="Refresh" onclick="snew()" /></p></center>
 </body></html>
