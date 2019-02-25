@@ -1,39 +1,23 @@
-
-<noscript>JavaScript is disabled.<audio id="player" src="http://stream.radiosai.org:8008" controls="controls" style="width:100%;"></audio></noscript>
-
+<!DOCTYPE html><head><meta name="viewport" content="width=device-width, initial-scale=1"/></head><body>
 <div class="box">
-
+	<noscript>Please enable JavaScript to use the audio player</noscript>
     <div id="container">
-
-        <audio id="player" src="http://stream.radiosai.org:8008" preload="metadata" title="radiosai">
-
+        <audio id="player" src="http://stream.radiosai.org:8008" preload="none" title="RadioSai">
         Please upgrade your browser to view the audio player.
-
         </audio>
 
-                <button id="one" class="btn" title="pause" onClick="btnP()">Play</button>
-
+                <button id="one" class="btn" onClick="btnP()">Play</button>
 
     </div>
-
     <div id="wrap">
-
                 <button class="click" onClick="clicked(bhajans)">Bhajans Stream</button>
-
                 <button class="click" onClick="clicked(discourse)">Discourse Stream</button>
-
                 <button class="click" onClick="clicked(asia)">Asia Stream</button>
-
                 <button class="click" onClick="clicked(ameri)">Ameri Stream</button>
-
                 <button class="click" onClick="clicked(afri)">Afri Stream</button>
-
                 <button class="click" onClick="clicked(telugu)">Telugu Stream</button>
-
     </div>
-
 </div>
-
 
 
 
@@ -56,14 +40,38 @@ function btnP() {
 function clicked(a){
 	audio.src=a;
 	audio.play();
-	one.innerHTML = "Pause";
-
+	one.innerHTML = "<div id='loading'></div>";
 }
+
+audio.oncanplay = function() {
+	one.innerHTML = "Pause";
+};
+
 </script>
 
 
-
 <style>
+#loading {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: 2.5px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #0890d2;
+  animation: spin 0.5s linear infinite;
+  -webkit-animation: spin 0.45s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+
+
+body {font-family: Arial, serif}
 #one,
 .box {
 	width: 100%;
@@ -125,7 +133,7 @@ function clicked(a){
 }
 
 .btn:hover {
-	background: #f1f1f1;
+	background: #ccc;
 	color: #000
 }
 
@@ -135,3 +143,4 @@ input:focus {
 	outline: 0
 }
 </style>
+</body></html>
