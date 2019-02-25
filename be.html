@@ -43,16 +43,19 @@
 var audio, one, bhajans, discourse, ameri, afri, telugu, asia;
 audio = document.getElementById("player"), one = document.getElementById("one"), bhajans = "http://stream.radiosai.org:8000", discourse = "http://stream.radiosai.org:8008", ameri = "http://stream.radiosai.org:8006", afri = "http://stream.radiosai.org:8004", telugu = "http://stream.radiosai.org:8020", asia = "http://stream.radiosai.org:8002"; 
 
-	function btnP() {
-
-	 if(audio.paused) {
-    	audio.play();
-        one.innerHTML = "Pause";
+function btnP() {
+	if(audio.paused) {
+    		audio.play();
+        	one.innerHTML = "Pause";
   }
   	else {
-    	audio.pause();
-        one.innerHTML = "Play";
+    		audio.pause();
+        	one.innerHTML = "Play";
   }
+}
+function clicked(a){
+	audio.src=a;
+	audio.play();
 }
 </script>
 
