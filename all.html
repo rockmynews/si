@@ -116,7 +116,7 @@ wrapper.appendChild(el);
         }
 
         var newEl = document.createElement('button');
-        newEl.innerHTML = "<img src='https://image.flaticon.com/icons/png/128/131/131258.png' style='max-width:100%;vertical-align:middle;' />";
+        newEl.innerHTML = "<img src='play.png' style='max-width:100%;vertical-align:middle;' />";
 
         newEl.id = "button" + i;
         newEl.classList.add("btn");
@@ -173,10 +173,10 @@ wrapper.appendChild(el);
             btn.onclick = function() {
                 if (hah.paused) {
                     hah.play();
-                    btn.innerHTML = "<img src='https://image.flaticon.com/icons/png/128/149/149127.png' style='max-width:100%;vertical-align:middle;' />";
+                    btn.innerHTML = "pause.png' style='max-width:100%;vertical-align:middle;' />";
                 } else {
                     hah.pause();
-                    btn.innerHTML = "<img src='https://image.flaticon.com/icons/png/128/131/131258.png' style='max-width:100%;vertical-align:middle;' />";
+                    btn.innerHTML = "<img src='play.png' style='max-width:100%;vertical-align:middle;' />";
                 }
 
 
