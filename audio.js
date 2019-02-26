@@ -1,29 +1,29 @@
-    function init() {
+function init() {
     var imgDefer = document.getElementsByTagName('audio');
     for (var i = 0; i < imgDefer.length; i++) {
         imgDefer[i].id = "someID" + i;
 
         this["marker" + i] = document.getElementById("someID" + i);
 
+        this["marker" + i].removeAttribute("controls");
+        // element that will be wrapped
+        var el = document.getElementById("someID" + i);
 
-// element that will be wrapped
-var el = document.getElementById("someID" + i);
+        // create wrapper container
+        var wrapper = document.createElement('div');
+        wrapper.classList.add("hah-wrap");
+        // insert wrapper before el in the DOM tree
+        el.parentNode.insertBefore(wrapper, el);
 
-// create wrapper container
-var wrapper = document.createElement('div');
-wrapper.classList.add("hah-wrap");
-// insert wrapper before el in the DOM tree
-el.parentNode.insertBefore(wrapper, el);
-
-// move el into wrapper
-wrapper.appendChild(el);
+        // move el into wrapper
+        wrapper.appendChild(el);
 
         function insertAfter(el, referenceNode) {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
 
         var newEl = document.createElement('button');
-        newEl.innerHTML = "<img src='http://si.rockmynews.com/play.png' style='max-width:100%;vertical-align:middle;' />";
+        newEl.innerHTML = "<img src='http://si.rockmynews.com/py.png' style='max-width:100%;vertical-align:middle;' />";
 
         newEl.id = "button" + i;
         newEl.classList.add("btn");
@@ -83,7 +83,7 @@ wrapper.appendChild(el);
                     btn.innerHTML = "<img src='http://si.rockmynews.com/pause.png' style='max-width:100%;vertical-align:middle;' />";
                 } else {
                     hah.pause();
-                    btn.innerHTML = "<img src='http://si.rockmynews.com/play.png' style='max-width:100%;vertical-align:middle;' />";
+                    btn.innerHTML = "<img src='http://si.rockmynews.com/py.png' style='max-width:100%;vertical-align:middle;' />";
                 }
 
 
@@ -127,15 +127,16 @@ wrapper.appendChild(el);
                 }
 
 
-//                audio.onplaying = function() {
-                    pg.addEventListener("click", seek);
-                    pg.style.cursor = "pointer";
-                    function seek(e) {
-                        var percent = e.offsetX / this.offsetWidth;
-                        audio.currentTime = percent * audio.duration;
-                        pg.value = percent / 100;
-                    }
-//                };
+                //                audio.onplaying = function() {
+                pg.addEventListener("click", seek);
+                pg.style.cursor = "pointer";
+
+                function seek(e) {
+                    var percent = e.offsetX / this.offsetWidth;
+                    audio.currentTime = percent * audio.duration;
+                    pg.value = percent / 100;
+                }
+                //                };
 
             };
         })();
