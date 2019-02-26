@@ -73,6 +73,10 @@ button,
 input:focus {
 	outline: 0
 }
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
 @media only screen and (max-width: 600px) {
 	.hah-wrap {
 		padding: 0;
@@ -83,8 +87,7 @@ input:focus {
 	progress {
 		max-width: 50%;
 	}
-}
-img {
-	max-width: 100%;
-	vertical-align: middle;
+	.btn:hover {
+		background: #fff;
+	}
 }
