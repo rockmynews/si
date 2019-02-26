@@ -23,7 +23,7 @@ function init() {
         }
 
         var newEl = document.createElement('button');
-        newEl.innerHTML = "<img src='http://si.rockmynews.com/py.png' style='max-width:100%;vertical-align:middle;' />";
+        newEl.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
 
         newEl.id = "button" + i;
         newEl.classList.add("btn");
@@ -35,7 +35,7 @@ function init() {
         }
         var newEl = document.createElement('span');
         newEl.id = "ctime" + i;
-        newEl.innerHTML = '0:00 ';
+        newEl.innerHTML = ' 0:00 ';
         var ref = document.getElementById('button' + i);
         insertAfter(newEl, ref);
 
@@ -80,10 +80,10 @@ function init() {
             btn.onclick = function() {
                 if (hah.paused) {
                     hah.play();
-                    btn.innerHTML = "<img src='http://si.rockmynews.com/pause.png' style='max-width:100%;vertical-align:middle;' />";
+                    btn.innerHTML = "<img src='http://si.rockmynews.com/pause1.png' />";
                 } else {
                     hah.pause();
-                    btn.innerHTML = "<img src='http://si.rockmynews.com/py.png' style='max-width:100%;vertical-align:middle;' />";
+                    btn.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
                 }
 
 
@@ -96,7 +96,7 @@ function init() {
                 };
 
                 function myFunction() {
-                    ct.innerHTML = convertElapsedTime(hah.currentTime) + " ";
+                    ct.innerHTML = " " + convertElapsedTime(hah.currentTime) + " ";
                 }
 
 
