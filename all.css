@@ -1,73 +1,90 @@
-progress{
-      -webkit-appearance: none;
-   appearance: none;
-
-
+#loading {
+	visibility: hidden;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 2.5px solid rgba(255, 255, 255, .3);
+	border-radius: 50%;
+	border-top-color: #0890d2;
+	animation: spin 0.45s linear infinite;
+	-webkit-animation: spin 0.45s linear infinite;
+	margin: auto;
 }
-
+@keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes spin {
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+progress {
+	-webkit-appearance: none;
+	appearance: none;
+}
 progress::-webkit-progress-bar {
- background-color: #ccc;
-  border-radius: 5em;
+	background-color: #ccc;
+	border-radius: 5em;
 }
-
-
-progress::-webkit-progress-value {  
-  border-radius: 12px;
-  background: #0890D2;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
-} 
+progress::-webkit-progress-value {
+	border-radius: 12px;
+	background: #0890D2;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+}
 /* environnement styles */
+
 .hah-wrap {
-    border: 1px solid #ccc;
-    max-width: 22em;
-    padding: 0.4em;
-    border-radius: 5em;
-    background: #b6b6b626;
+	border: 1px solid #ccc;
+	max-width: 20em;
+	padding: 0.4em;
+	border-radius: 5em;
+	background: #b6b6b626;
+	margin: 1em;
 }
-
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
-
 img {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
-
 .btn {
-    font-family: inherit;
-    color: #5d504f;
-    margin: 5px;
-    /padding: 8px 10px;
-    border-radius: 5em;
-    background: #fff;
-    border: 1px solid rgba(18, 7, 6, .2);
-    display: inline-block;
-    height: 60px;
-    width: 60px;
+	font-family: inherit;
+	color: #5d504f;
+	/*    margin: 5px;
+    padding: 8px 10px;
+*/
+	border-radius: 5em;
+	background: #fff;
+	border: 1px solid rgba(18, 7, 6, .2);
+	display: inline-block;
+	height: 40px;
+	width: 40px;
 }
-
 .btn:hover {
-    background: #ccc;
-    color: #000;
-    cursor: pointer;
+	background: #ccc;
+	color: #000;
+	cursor: pointer;
 }
-
 .btn:focus,
 button,
 input:focus {
-    outline: 0
+	outline: 0
 }
-
-
 @media only screen and (max-width: 600px) {
-  .hah-wrap {
-    padding: 0;
-  }
-  body {
-    background: #eeeeee82;
-  }
-  progress {
-    max-width: 50%;
-  }
+	.hah-wrap {
+		padding: 0;
+	}
+	body {
+		background: #eeeeee82;
+	}
+	progress {
+		max-width: 50%;
+	}
+}
+img {
+	max-width: 100%;
+	vertical-align: middle;
 }
