@@ -23,10 +23,10 @@ function init() {
         }
 
         var newEl = document.createElement('button');
-        // newEl.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
+        newEl.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
 
         newEl.id = "button" + i;
-        newEl.classList.add("togglePlay");
+        newEl.classList.add("btn");
         var ref = document.getElementById('someID' + i);
         insertAfter(newEl, ref);
 
@@ -98,13 +98,13 @@ function init() {
             btn.onclick = function() {
                 if (hah.paused) {
                     hah.play();
-                    // btn.innerHTML = "<img src='http://si.rockmynews.com/pause1.png' />";
-				    btn.classList.add('active');
+                    btn.innerHTML = "<img src='http://si.rockmynews.com/pause1.png' />";
+				    // btn.classList.add('active');
 
                 } else {
                     hah.pause();
-                    // btn.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
-                    btn.classList.remove('active');
+                    btn.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
+                    // btn.classList.remove('active');
                 }
 
 
