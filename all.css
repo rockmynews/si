@@ -6,10 +6,12 @@ progress {
 	position: absolute;
 	top: 30px;
     left: 30%;
+    visibility: hidden;
 }
 progress::-webkit-progress-bar {
 	background-color: #ccc;
 	border-radius: 5em;
+	overflow: hidden;
 }
 progress::-webkit-progress-value {
 	border-radius: 12px;
@@ -26,7 +28,7 @@ progress::-webkit-progress-value {
 	position: absolute;
 	left: 58%;
 }
-.hah-wrap {
+.a3o-wrap {
 	border: 1px solid #ccc;
 	max-width: 22em;
 	padding: 0.4em;
@@ -56,7 +58,7 @@ img {
 	width: 40px;
 }
 .btn:hover {
-	background: #ccc;
+	/*background: #ccc;*/
 	color: #000;
 	cursor: pointer;
 }
@@ -70,7 +72,7 @@ img {
 	vertical-align: middle;
 }
 @media only screen and (max-width: 600px) {
-	.hah-wrap {
+	.a30-wrap {
 		padding: 0;
 		margin: 0.25em;
 		font-size: small;
@@ -87,44 +89,25 @@ img {
 }
 
 
-.togglePlay {
-  font: 0/0 a;
-  background: #fff;
-  color: transparent;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  /*margin: 10px auto 0;*/
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 150ms ease-out;
+.bg-play {
+    width: 40px; height: 40px;
+    background: url('http://si.rockmynews.com/css_sprites.png') -3px -6px;
 }
-.togglePlay:after {
-  box-sizing: border-box;
-  display: block;
-  content: '';
-  width: 0;
-  height: 0;
-  margin-left: 8px;
-  border-color: transparent;
-  border-style: solid;
-  border-top-width: 16px;
-  border-bottom-width: 16px;
-  border-left-width: 19px;
-  /*border-left-color: rgba(255, 255, 255, 0.9);*/
-  border-left-color: #0890D2;
+
+x
+.bg-pause {
+    width: 30px; height: 30px;
+    background: url('http://si.rockmynews.com/css_sprites.png') -60px -10px;
 }
-/*.togglePlay:hover {
-  transform: scale(1.05);
-}*/
-.togglePlay.active:after {
-  width: 21px;
-  height: 26px;
-  margin-left: 0;
-  border-width: 0 7px;
-  /*border-color: rgba(255, 255, 255, 0.9);*/
-  border-color: #0890D2;
+
+x
+.bg-speak_on {
+    width: 24px; height: 24px;
+    background: url('http://si.rockmynews.com/css_sprites.png') -10px -60px;
+}
+
+x
+.bg-speak_off {
+    width: 24px; height: 24px;
+    background: url('http://si.rockmynews.com/css_sprites.png') -54px -60px;
 }
