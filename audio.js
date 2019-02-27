@@ -46,7 +46,7 @@ function init() {
         newEl.id = "progress" + i;
         newEl.setAttribute("max", "100");
         newEl.setAttribute("value", "0");
-        var ref = document.getElementById('ctime' + i);
+        var ref = document.getElementById('button' + i);
         insertAfter(newEl, ref);
 
         function insertAfter(el, referenceNode) {
@@ -54,21 +54,21 @@ function init() {
         }
         var newEl = document.createElement('span');
         newEl.id = "duration" + i;
-        newEl.innerHTML = ' 0:00';
-        var ref = document.getElementById('progress' + i);
+        newEl.innerHTML = '/ 0:00';
+        var ref = document.getElementById('ctime' + i);
         insertAfter(newEl, ref);
 
 
 
 
-        function convertElapsedTime(inputSeconds) {
-            var seconds = Math.floor(inputSeconds % 60)
-            if (seconds < 10) {
-                seconds = "0" + seconds
-            }
-            var minutes = Math.floor(inputSeconds / 60)
-            return minutes + ":" + seconds
-        }
+        // function convertElapsedTime(inputSeconds) {
+        //     var seconds = Math.floor(inputSeconds % 60)
+        //     if (seconds < 10) {
+        //         seconds = "0" + seconds
+        //     }
+        //     var minutes = Math.floor(inputSeconds / 60)
+        //     return minutes + ":" + seconds
+        // }
 
 
         (function() {
@@ -77,6 +77,22 @@ function init() {
             var ct = document.getElementById("ctime" + i);
             var dt = document.getElementById("duration" + i);
             var pg = document.getElementById("progress" + i);
+
+			function convertElapsedTime(inputSeconds) {
+			    d = inputSeconds;
+			    var h = Math.floor(d / 3600);
+			    var m = Math.floor(d % 3600 / 60);
+			    var s = Math.floor(d % 3600 % 60);
+
+			    if(hah.duration > 3599){
+			      return ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+			    }
+			    else{
+			      return ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+			    }
+			}
+
+
             btn.onclick = function() {
                 if (hah.paused) {
                     hah.play();
@@ -88,16 +104,17 @@ function init() {
 
 
                 hah.addEventListener('loadedmetadata', function() {
-                    dt.innerHTML = " " + convertElapsedTime(hah.duration);
+                    dt.innerHTML = "/ " + convertElapsedTime(hah.duration);
                 });
 
+                	//getAttribute('preload')
                 hah.ontimeupdate = function() {
-                    myFunction()
+                    ct.innerHTML = " " + convertElapsedTime(hah.currentTime) + " ";
                 };
 
-                function myFunction() {
-                    ct.innerHTML = " " + convertElapsedTime(hah.currentTime) + " ";
-                }
+                // function myFunction() {
+                //     ct.innerHTML = " " + convertElapsedTime(hah.currentTime) + " ";
+                // }
 
 
 
@@ -127,7 +144,7 @@ function init() {
                 }
 
 
-                //                audio.onplaying = function() {
+                //audio.onplaying = function() {
                 pg.addEventListener("click", seek);
                 pg.style.cursor = "pointer";
 
@@ -144,12 +161,5 @@ function init() {
 
 
     }
-
-
-
-
 }
-
-
-
 window.onload = init;
