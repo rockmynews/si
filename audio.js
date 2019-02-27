@@ -1,20 +1,17 @@
 function init() {
-    var imgDefer = document.getElementsByTagName('audio');
-    for (var i = 0; i < imgDefer.length; i++) {
-        imgDefer[i].id = "someID" + i;
+    var ad3 = document.getElementsByTagName('audio');
+    for (var i = 0; i < ad3.length; i++) {
+        ad3[i].id = "someID" + i;
+        ad3[i].removeAttribute("controls");
+        // this["ad3" + i] = document.getElementById("someID" + i);
 
-        this["marker" + i] = document.getElementById("someID" + i);
-
-        this["marker" + i].removeAttribute("controls");
         // element that will be wrapped
         var el = document.getElementById("someID" + i);
-
         // create wrapper container
         var wrapper = document.createElement('div');
-        wrapper.classList.add("hah-wrap");
+        wrapper.classList.add("a3o-wrap");
         // insert wrapper before el in the DOM tree
         el.parentNode.insertBefore(wrapper, el);
-
         // move el into wrapper
         wrapper.appendChild(el);
 
@@ -25,7 +22,7 @@ function init() {
         var newEl = document.createElement('button');
         newEl.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
 
-        newEl.id = "button" + i;
+        newEl.id = "a3o-btn" + i;
         newEl.classList.add("btn");
         var ref = document.getElementById('someID' + i);
         insertAfter(newEl, ref);
@@ -34,10 +31,10 @@ function init() {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
         var newEl = document.createElement('span');
-        newEl.id = "ctime" + i;
-        newEl.classList.add("time-len");        
-        // newEl.innerHTML = ' 0:00 ';
-        var ref = document.getElementById('button' + i);
+        newEl.id = "a3o-ct" + i;
+        newEl.classList.add("time-len");
+        newEl.innerHTML = ' 0:00 ';
+        var ref = document.getElementById('a3o-btn' + i);
         insertAfter(newEl, ref);
 
 
@@ -45,10 +42,10 @@ function init() {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
         var newEl = document.createElement('span');
-        newEl.id = "duration" + i;
-        newEl.classList.add("time-duration");                
-        // newEl.innerHTML = ' 0:00';
-        var ref = document.getElementById('ctime' + i);
+        newEl.id = "a3o-len" + i;
+        newEl.classList.add("time-duration");
+        newEl.innerHTML = ' 0:00';
+        var ref = document.getElementById('a3o-ct' + i);
         insertAfter(newEl, ref);
 
         function insertAfter(el, referenceNode) {
@@ -58,12 +55,12 @@ function init() {
         newEl.id = "progress" + i;
         newEl.setAttribute("max", "100");
         newEl.setAttribute("value", "0");
-        var ref = document.getElementById('duration' + i);
+        var ref = document.getElementById('a3o-len' + i);
         insertAfter(newEl, ref);
 
 
 
-        // function convertElapsedTime(inputSeconds) {
+        // function convertTime(inputSeconds) {
         //     var seconds = Math.floor(inputSeconds % 60)
         //     if (seconds < 10) {
         //         seconds = "0" + seconds
@@ -74,59 +71,56 @@ function init() {
 
 
         (function() {
-            var hah = this["marker" + i];
-            var btn = document.getElementById("button" + i);
-            var ct = document.getElementById("ctime" + i);
-            var dt = document.getElementById("duration" + i);
+            var a3o = ad3[i];
+            var btn = document.getElementById("a3o-btn" + i);
+            var ct = document.getElementById("a3o-ct" + i);
+            var dt = document.getElementById("a3o-len" + i);
             var pg = document.getElementById("progress" + i);
 
-			function convertElapsedTime(inputSeconds) {
-			    d = inputSeconds;
-			    var h = Math.floor(d / 3600);
-			    var m = Math.floor(d % 3600 / 60);
-			    var s = Math.floor(d % 3600 % 60);
+            function convertTime(inputSeconds) {
+                d = inputSeconds;
+                var h = Math.floor(d / 3600);
+                var m = Math.floor(d % 3600 / 60);
+                var s = Math.floor(d % 3600 % 60);
 
-			    if(hah.duration > 3599){
-			      return ('' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
-			    }
-			    else{
-			      return ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
-			    }
-			}
+                if (a3o.duration > 3599) {
+                    return ('' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+                } else {
+                    return ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+                }
+            }
 
 
             btn.onclick = function() {
-                if (hah.paused) {
-                    hah.play();
+                if (a3o.paused) {
+                    a3o.play();
                     btn.innerHTML = "<img src='http://si.rockmynews.com/pause1.png' />";
-				    // btn.classList.add('active');
+                    // btn.classList.add('active');
 
                 } else {
-                    hah.pause();
+                    a3o.pause();
                     btn.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
                     // btn.classList.remove('active');
                 }
 
 
-                hah.addEventListener('loadedmetadata', function() {
-                    dt.innerHTML = convertElapsedTime(hah.duration);
+                a3o.addEventListener('loadedmetadata', function() {
+                    dt.innerHTML = convertTime(a3o.duration);
                 });
 
-                	//getAttribute('preload')
-                hah.ontimeupdate = function() {
-                    ct.innerHTML = convertElapsedTime(hah.currentTime);
+                //getAttribute('preload')
+                a3o.ontimeupdate = function() {
+                    ct.innerHTML = convertTime(a3o.currentTime);
                 };
 
-                // function myFunction() {
-                //     ct.innerHTML = " " + convertElapsedTime(hah.currentTime) + " ";
-                // }
 
 
 
                 var timer;
                 var percent = 0;
-                var audio = hah;
+                var audio = a3o;
                 audio.addEventListener("playing", function(_event) {
+                    pg.style.visibility = 'visible';
                     var duration = _event.target.duration;
                     advance(duration, audio);
                 });
@@ -158,12 +152,9 @@ function init() {
                     audio.currentTime = percent * audio.duration;
                     pg.value = percent / 100;
                 }
-                //                };
 
             };
         })();
-
-
 
     }
 }
