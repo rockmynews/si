@@ -4,7 +4,7 @@ progress {
 	max-width: 50%;
 	margin-left: 5px;
 	position: absolute;
-	top: 20px;
+	top: 30px;
     left: 30%;
 }
 progress::-webkit-progress-bar {
@@ -81,4 +81,50 @@ img {
 	.btn:hover {
 		background: #fff;
 	}
+	progress {
+		top: 20px;
+	}
+}
+
+
+.togglePlay {
+  font: 0/0 a;
+  background: #fff;
+  color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  /*margin: 10px auto 0;*/
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 150ms ease-out;
+}
+.togglePlay:after {
+  box-sizing: border-box;
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  margin-left: 8px;
+  border-color: transparent;
+  border-style: solid;
+  border-top-width: 16px;
+  border-bottom-width: 16px;
+  border-left-width: 19px;
+  /*border-left-color: rgba(255, 255, 255, 0.9);*/
+  border-left-color: #0890D2;
+}
+/*.togglePlay:hover {
+  transform: scale(1.05);
+}*/
+.togglePlay.active:after {
+  width: 21px;
+  height: 26px;
+  margin-left: 0;
+  border-width: 0 7px;
+  /*border-color: rgba(255, 255, 255, 0.9);*/
+  border-color: #0890D2;
 }
