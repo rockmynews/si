@@ -109,7 +109,7 @@ function init() {
 
                 	//getAttribute('preload')
                 hah.ontimeupdate = function() {
-                    ct.innerHTML = " " + convertElapsedTime(hah.currentTime) + " ";
+                    ct.innerHTML = convertElapsedTime(hah.currentTime);
                 };
 
                 // function myFunction() {
