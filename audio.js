@@ -1,6 +1,7 @@
 function init() {
     var ad3 = document.getElementsByTagName('audio');
     for (var i = 0; i < ad3.length; i++) {
+        ad3[i].preload = "none";
         ad3[i].id = "someID" + i;
         ad3[i].removeAttribute("controls");
         // this["ad3" + i] = document.getElementById("someID" + i);
