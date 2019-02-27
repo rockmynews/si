@@ -3,6 +3,9 @@ progress {
 	appearance: none;
 	max-width: 50%;
 	margin-left: 5px;
+	position: absolute;
+	top: 20px;
+    left: 30%;
 }
 progress::-webkit-progress-bar {
 	background-color: #ccc;
@@ -15,6 +18,14 @@ progress::-webkit-progress-value {
 }
 /* environnement styles */
 
+.time-len {
+	position: absolute;
+	left: 33%;
+}
+.time-duration {
+	position: absolute;
+	left: 58%;
+}
 .hah-wrap {
 	border: 1px solid #ccc;
 	max-width: 22em;
@@ -22,6 +33,7 @@ progress::-webkit-progress-value {
 	border-radius: 5em;
 	background: #b6b6b626;
 	margin: 1em;
+	position: relative;
 }
 body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -66,12 +78,7 @@ img {
 	body {
 		background: #eeeeee82;
 	}
-	progress {
-		max-width: 40%;
-		margin-right: 5px;
-	}
 	.btn:hover {
 		background: #fff;
 	}
-	#ctime0{vertical-align:top;}
 }
