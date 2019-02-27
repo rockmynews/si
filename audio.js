@@ -35,8 +35,20 @@ function init() {
         }
         var newEl = document.createElement('span');
         newEl.id = "ctime" + i;
+        newEl.classList.add("time-len");        
         newEl.innerHTML = ' 0:00 ';
         var ref = document.getElementById('button' + i);
+        insertAfter(newEl, ref);
+
+
+        function insertAfter(el, referenceNode) {
+            referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+        }
+        var newEl = document.createElement('span');
+        newEl.id = "duration" + i;
+        newEl.classList.add("time-duration");                
+        newEl.innerHTML = ' 0:00';
+        var ref = document.getElementById('ctime' + i);
         insertAfter(newEl, ref);
 
         function insertAfter(el, referenceNode) {
@@ -46,18 +58,8 @@ function init() {
         newEl.id = "progress" + i;
         newEl.setAttribute("max", "100");
         newEl.setAttribute("value", "0");
-        var ref = document.getElementById('button' + i);
+        var ref = document.getElementById('duration' + i);
         insertAfter(newEl, ref);
-
-        function insertAfter(el, referenceNode) {
-            referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
-        }
-        var newEl = document.createElement('span');
-        newEl.id = "duration" + i;
-        newEl.innerHTML = '/ 0:00';
-        var ref = document.getElementById('ctime' + i);
-        insertAfter(newEl, ref);
-
 
 
 
@@ -104,7 +106,7 @@ function init() {
 
 
                 hah.addEventListener('loadedmetadata', function() {
-                    dt.innerHTML = "/ " + convertElapsedTime(hah.duration);
+                    dt.innerHTML = convertElapsedTime(hah.duration);
                 });
 
                 	//getAttribute('preload')
