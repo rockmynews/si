@@ -35,6 +35,7 @@ progress::-webkit-progress-value {
 	border-radius: 5em;
 /*	background: #b6b6b626;*/
 	background: #fff;
+	color: #000;
 	margin: 1em;
 	position: relative;
 }
