@@ -85,7 +85,7 @@ function init() {
 			    var s = Math.floor(d % 3600 % 60);
 
 			    if(hah.duration > 3599){
-			      return ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+			      return ('' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
 			    }
 			    else{
 			      return ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
