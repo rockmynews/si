@@ -36,7 +36,7 @@ function init() {
         var newEl = document.createElement('span');
         newEl.id = "ctime" + i;
         newEl.classList.add("time-len");        
-        newEl.innerHTML = ' 0:00 ';
+        // newEl.innerHTML = ' 0:00 ';
         var ref = document.getElementById('button' + i);
         insertAfter(newEl, ref);
 
@@ -47,7 +47,7 @@ function init() {
         var newEl = document.createElement('span');
         newEl.id = "duration" + i;
         newEl.classList.add("time-duration");                
-        newEl.innerHTML = ' 0:00';
+        // newEl.innerHTML = ' 0:00';
         var ref = document.getElementById('ctime' + i);
         insertAfter(newEl, ref);
 
