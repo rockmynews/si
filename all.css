@@ -18,6 +18,11 @@ progress::-webkit-progress-value {
 	background: #0890D2;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
 }
+
+progress:focus {
+outline: none;
+}
+
 /* environnement styles */
 
 .time-len {
