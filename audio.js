@@ -1,16 +1,8 @@
-if(document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded',afterDOMLoaded);
-} else {
-    afterDOMLoaded();
-}
-
-function afterDOMLoaded(){
-    //Everything that needs to happen after the DOM has initially loaded.
+function init() {
     var ad3 = document.getElementsByTagName('audio');
     for (var i = 0; i < ad3.length; i++) {
         ad3[i].preload = "none";    	
         ad3[i].id = "someID" + i;
-		ad3[i].preload = "none";
         ad3[i].removeAttribute("controls");
         // this["ad3" + i] = document.getElementById("someID" + i);
 
@@ -30,7 +22,8 @@ function afterDOMLoaded(){
 
         var newEl = document.createElement('button');
         newEl.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
-
+        newEl.title = "Play";
+        newEl.alt = "Play";
         newEl.id = "a3o-btn" + i;
         newEl.classList.add("btn");
         var ref = document.getElementById('someID' + i);
@@ -104,11 +97,15 @@ function afterDOMLoaded(){
                 if (a3o.paused) {
                     a3o.play();
                     btn.innerHTML = "<img src='http://si.rockmynews.com/pause1.png' />";
+                    btn.title = "Pause";
+                    btn.alt = "Pause";
                     // btn.classList.add('active');
 
                 } else {
                     a3o.pause();
                     btn.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
+                    btn.title = "Play";
+                    btn.alt = "Play"
                     // btn.classList.remove('active');
                 }
 
@@ -121,9 +118,6 @@ function afterDOMLoaded(){
                 a3o.ontimeupdate = function() {
                     ct.innerHTML = convertTime(a3o.currentTime);
                 };
-
-
-
 
                 var timer;
                 var percent = 0;
@@ -167,4 +161,15 @@ function afterDOMLoaded(){
 
     }
 }
+window.onload = init;
 
+
+// if (document.readyState === 'loading') {
+//     document.addEventListener('DOMContentLoaded', afterDOMLoaded);
+// } else {
+//     afterDOMLoaded();
+// }
+
+// function afterDOMLoaded() {
+//     //Everything that needs to happen after the DOM has initially loaded.
+// }
