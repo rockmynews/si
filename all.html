@@ -1,19 +1,59 @@
-<!DOCTYPE html><head><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!DOCTYPE html lang="en-US"><head><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charset="utf-8">
 <meta http-equiv="cache-control" content="max-age=0" />
 <meta http-equiv="cache-control" content="no-cache" />
 <meta http-equiv="expires" content="0" />
 <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 <meta http-equiv="pragma" content="no-cache" />
-<script type="text/javascript" src="audio.js" async></script>
+<script src="audio.js" async></script>
 <link rel="stylesheet" type="text/css" href="all.css" />
-
+<title>all</title>
 </head><body>
 
+<script>
+ if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded',afterDOMLoaded);
+} else {
+    afterDOMLoaded();
+}
 
-<audio src="http://dl.radiosai.org/TL_LIVE_2019_02_21_06_2PM_TO_3_30PM.mp3" preload="none" controls="controls"></audio>
+function afterDOMLoaded(){
+    //Everything that needs to happen after the DOM has initially loaded.
+}
 
-<audio src="http://media.radiosai.org/www/mp3download/radiosai-bhajan-tutor-budha-mahavira-lyrics.mp3" preload="none" controls="controls"></audio>
-<audio src="https://www.podtrac.com/pts/redirect.mp3/cdn.twit.tv/audio/twig/twig0496/twig0496.mp3" preload="none" controls="controls"></audio>
+</script>
+
+
+<audio src="http://dl.radiosai.org/TL_LIVE_2019_02_21_06_2PM_TO_3_30PM.mp3" preload="metadata" controls="controls" title="Love to Love - Indreshswar"></audio>
+<audio src="file:///C:/Users/ask/Downloads/DD_1984_08_05_BHAGAWAD_GITA_04_TELUGU.mp3"></audio>
+<audio src="http://media.radiosai.org/www/mp3download/radiosai-bhajan-tutor-budha-mahavira-lyrics.mp3" preload="none" controls="controls" title="Buddha Mahavira "></audio>
+<audio src="https://twit.cachefly.net/audio/twig/twig0496/twig0496.mp3" preload="none" controls="controls" title="TWIG - 496"></audio>
+
+<div onclick="eel()" id="s"><img src='https://image.icons8.com/?id=32073&format=png&size=24&color=000000' /></div>
+<script type="text/javascript">
+function eel() {
+    var vid = document.getElementById("someID0");
+    var s = document.getElementById("s");
+
+    vid.muted = (vid.muted === true) ? false : true;
+    s.innerHTML = (vid.muted !=false) ? "<img src='https://image.icons8.com/?id=32075&format=png&size=24&color=000000' />" : "<img src='https://image.icons8.com/?id=32073&format=png&size=24&color=000000' />";
+
+}
+</script>
+
+
+
+
+ <svg width="100%" height="100%"  >
+            <defs>
+                <path id="pause-icon" data-state="playing" d="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26" />
+                <path id="play-icon"  data-state="paused"  d="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28" />
+            </defs>
+            <use xlink:href="#play-icon" />
+        </svg>
+
+
+
+
 
 <script type="text/javascript">
         <!--//--><![CDATA[//><!--
