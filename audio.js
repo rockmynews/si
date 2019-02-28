@@ -1,6 +1,7 @@
 function init() {
     var ad3 = document.getElementsByTagName('audio');
     for (var i = 0; i < ad3.length; i++) {
+        var store = ad3[i].getAttribute("preload");
         ad3[i].preload = "none";    	
         ad3[i].id = "someID" + i;
         ad3[i].removeAttribute("controls");
@@ -60,19 +61,6 @@ function init() {
         var ref = document.getElementById('a3o-len' + i);
         insertAfter(newEl, ref);
 
-        function insertAfter(el, referenceNode) {
-            referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
-        }
-        var newEl = document.createElement('input');
-        newEl.type = "range";
-        newEl.id = "start" + i;
-        newEl.setAttribute("value", "0");
-        newEl.setAttribute("min", "1");
-        newEl.setAttribute("max", "100");
-        newEl.setAttribute("step", "any");
-        var ref = document.getElementById('progress' + i);
-        insertAfter(newEl, ref);
-
 
 
         // function convertTime(inputSeconds) {
@@ -84,6 +72,9 @@ function init() {
         //     return minutes + ":" + seconds
         // }
 
+                 // document.getElementById('a3o-len' + i).innerHTML = (store === "metadata") ? ad3[i].duration : "0:00";
+
+
 
         (function() {
             var a3o = ad3[i];
@@ -91,7 +82,6 @@ function init() {
             var ct = document.getElementById("a3o-ct" + i);
             var dt = document.getElementById("a3o-len" + i);
             var pg = document.getElementById("progress" + i);
-            var start = document.getElementById("start" + i);
 
             function convertTime(inputSeconds) {
                 d = inputSeconds;
@@ -113,14 +103,12 @@ function init() {
                     btn.innerHTML = "<img src='http://si.rockmynews.com/pause1.png' />";
                     btn.title = "Pause";
                     btn.alt = "Pause";
-                    // btn.classList.add('active');
 
                 } else {
                     a3o.pause();
                     btn.innerHTML = "<img src='http://si.rockmynews.com/play1.png' />";
                     btn.title = "Play";
-                    btn.alt = "Play"
-                    // btn.classList.remove('active');
+                    btn.alt = "Play";
                 }
 
 
@@ -128,27 +116,18 @@ function init() {
                     dt.innerHTML = convertTime(a3o.duration);
                 });
 
+
                 a3o.ontimeupdate = function() {
                     ct.innerHTML = convertTime(a3o.currentTime);
                     percent = (a3o.currentTime * 100)/a3o.duration ;
-                    start.value = pg.value = percent;
+                    pg.value = percent;
                 };
 
-                start.addEventListener("click", move);
+                pg.addEventListener("click", move);
                 function move(e) {
                     var percent = e.offsetX / this.offsetWidth;
-                    var store = percent;
                     a3o.currentTime = percent * a3o.duration;
                 }
-
-
-
-                 start.oninput = function() {myFunction()};
-                    function myFunction() {
-                        console.log("sdfsfd");
-                    return true;
-                    }
-
 
             };
         })();
