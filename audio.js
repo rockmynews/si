@@ -60,6 +60,19 @@ function init() {
         var ref = document.getElementById('a3o-len' + i);
         insertAfter(newEl, ref);
 
+        function insertAfter(el, referenceNode) {
+            referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+        }
+        var newEl = document.createElement('input');
+        newEl.type = "range";
+        newEl.id = "start" + i;
+        newEl.setAttribute("value", "0");
+        newEl.setAttribute("min", "1");
+        newEl.setAttribute("max", "100");
+        newEl.setAttribute("step", "any");
+        var ref = document.getElementById('progress' + i);
+        insertAfter(newEl, ref);
+
 
 
         // function convertTime(inputSeconds) {
@@ -78,6 +91,7 @@ function init() {
             var ct = document.getElementById("a3o-ct" + i);
             var dt = document.getElementById("a3o-len" + i);
             var pg = document.getElementById("progress" + i);
+            var start = document.getElementById("start" + i);
 
             function convertTime(inputSeconds) {
                 d = inputSeconds;
@@ -114,47 +128,27 @@ function init() {
                     dt.innerHTML = convertTime(a3o.duration);
                 });
 
-                //getAttribute('preload')
                 a3o.ontimeupdate = function() {
                     ct.innerHTML = convertTime(a3o.currentTime);
+                    percent = (a3o.currentTime * 100)/a3o.duration ;
+                    start.value = pg.value = percent;
                 };
 
-                var timer;
-                var percent = 0;
-                var audio = a3o;
-                audio.addEventListener("playing", function(_event) {
-                    pg.style.visibility = 'visible';
-                    var duration = _event.target.duration;
-                    advance(duration, audio);
-                });
-                audio.addEventListener("pause", function(_event) {
-                    clearTimeout(timer);
-                });
-                var advance = function(duration, element) {
-                    var progress = pg;
-                    increment = 10 / duration;
-                    percent = Math.min(increment * element.currentTime * 10, 100);
-                    progress.value = percent;
-                    startTimer(duration, element);
-                }
-                var startTimer = function(duration, element) {
-                    if (percent < 100) {
-                        timer = setTimeout(function() {
-                            advance(duration, element);
-                        }, 100);
-                    }
-                }
-
-
-                //audio.onplaying = function() {
-                pg.addEventListener("click", seek);
-                pg.style.cursor = "pointer";
-
-                function seek(e) {
+                start.addEventListener("click", move);
+                function move(e) {
                     var percent = e.offsetX / this.offsetWidth;
-                    audio.currentTime = percent * audio.duration;
-                    pg.value = percent / 100;
+                    var store = percent;
+                    a3o.currentTime = percent * a3o.duration;
                 }
+
+
+
+                 start.oninput = function() {myFunction()};
+                    function myFunction() {
+                        console.log("sdfsfd");
+                    return true;
+                    }
+
 
             };
         })();
