@@ -1,6 +1,7 @@
+
 progress[value] {
-  width: 200px;
-  height: 5px;
+  width: 150;
+  height: 9px;
   border: 0;
     -webkit-appearance: none;
    appearance: none;
@@ -9,54 +10,25 @@ left: 25%;
 top: 55%;
 }
 
+progress[value]::-webkit-progress-value {
+  background-image:
+	   -webkit-linear-gradient(-45deg, 
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top, 
+	                           rgba(255, 255, 255, .25), 
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, #f44);
+
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
 progress[value]::-webkit-progress-bar {
   background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
-
-progress[value]:focus,progress[value]:active {
-    outline: 0;
-}
-
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-}
-
-
-input[type="range"] {
-  /*display: block;*/
-  -webkit-appearance: none;
-  /*background-color: #bdc3c7;*/
-    background-color: transparent;
-
-  width: 200px;
-  height: 7px;
-  /*border-radius: 5px;*/
-  margin: 0 auto;
-  outline: 0;
-position: absolute;
-top: 53%;
-left: 25%;
-cursor: pointer;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background-color: #e74c3c;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  /*border: 2px solid white;*/
-  cursor: pointer;
-  transition: .3s ease-in-out;
-
-
-}​
-  input[type="range"]::-webkit-slider-thumb:hover {
-    background-color: white;
-    border: 2px solid #e74c3c;
-  }
-
- 
- 	
 
 /* environnement styles */
 
