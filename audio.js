@@ -54,12 +54,25 @@ function init() {
         function insertAfter(el, referenceNode) {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
-        var newEl = document.createElement('progress');
-        newEl.id = "progress" + i;
-        newEl.setAttribute("max", "100");
-        newEl.setAttribute("value", "0");
+        var newEl = document.createElement('b');
+        newEl.classList.add("www");
+        newEl.id = "www" + i;
         var ref = document.getElementById('a3o-len' + i);
         insertAfter(newEl, ref);
+        
+
+        // element that will be wrapped
+        var el = document.getElementById("www" + i);
+        // create wrapper container
+        var wrapper = document.createElement('b');
+        wrapper.id = "qq" + i;
+        wrapper.classList.add("qq");
+        // insert wrapper before el in the DOM tree
+        el.parentNode.insertBefore(wrapper, el);
+        // move el into wrapper
+        wrapper.appendChild(el);
+
+
 
 
 
@@ -82,6 +95,9 @@ function init() {
             var ct = document.getElementById("a3o-ct" + i);
             var dt = document.getElementById("a3o-len" + i);
             var pg = document.getElementById("progress" + i);
+            var input = document.getElementById("input" + i);
+            var ww = document.getElementById("www" + i);
+            var qq = document.getElementById("qq" + i);
 
             function convertTime(inputSeconds) {
                 d = inputSeconds;
@@ -120,13 +136,16 @@ function init() {
                 a3o.ontimeupdate = function() {
                     ct.innerHTML = convertTime(a3o.currentTime);
                     percent = (a3o.currentTime * 100)/a3o.duration ;
-                    pg.value = percent;
+                    ww.style.width= percent + "%";
                 };
 
-                pg.addEventListener("click", move);
+                qq.addEventListener("click", move);
                 function move(e) {
                     var percent = e.offsetX / this.offsetWidth;
+                    ww.style.width= (percent*100) + "%";
+
                     a3o.currentTime = percent * a3o.duration;
+
                 }
 
             };
