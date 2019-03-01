@@ -54,14 +54,27 @@ function init() {
         function insertAfter(el, referenceNode) {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
-        var newEl = document.createElement('input');
-        newEl.id = "range" + i;
+        var newEl = document.createElement('progress');
+        newEl.id = "progress" + i;
         newEl.setAttribute("min", "1");
         newEl.setAttribute("max", "100");
-        newEl.setAttribute("type", "range");
+        newEl.setAttribute("value", "0");
         var ref = document.getElementById('a3o-len' + i);
         insertAfter(newEl, ref);
 
+
+        function insertAfter(el, referenceNode) {
+            referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+        }
+        var newEl = document.createElement('input');
+        newEl.classList.add("range");
+        newEl.id = "range" + i;
+        newEl.setAttribute("min", "1");
+        newEl.setAttribute("value", "0");
+        newEl.setAttribute("max", "100");
+        newEl.setAttribute("type", "range");
+        var ref = document.getElementById('progress' + i);
+        insertAfter(newEl, ref);
         // function insertAfter(el, referenceNode) {
         //     referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         // }
@@ -133,7 +146,7 @@ function init() {
                     ct.innerHTML = convertTime(a3o.currentTime);
                     percent = (a3o.currentTime * 100)/a3o.duration ;
                     // ww.style.width= percent + "%";
-                    range.value = percent;
+                    range.value = pg.value = percent;
                 };
 
                 // range.addEventListener("click", move);
