@@ -2,19 +2,14 @@ function init() {
     var ad3 = document.getElementsByTagName('audio');
     for (var i = 0; i < ad3.length; i++) {
         var store = ad3[i].getAttribute("preload");
-        ad3[i].preload = "none";    	
+        ad3[i].preload = "none";
         ad3[i].id = "someID" + i;
         ad3[i].removeAttribute("controls");
-        // this["ad3" + i] = document.getElementById("someID" + i);
 
-        // element that will be wrapped
         var el = document.getElementById("someID" + i);
-        // create wrapper container
         var wrapper = document.createElement('div');
         wrapper.classList.add("a3o-wrap");
-        // insert wrapper before el in the DOM tree
         el.parentNode.insertBefore(wrapper, el);
-        // move el into wrapper
         wrapper.appendChild(el);
 
         function insertAfter(el, referenceNode) {
@@ -40,7 +35,6 @@ function init() {
         var ref = document.getElementById('a3o-btn' + i);
         insertAfter(newEl, ref);
 
-
         function insertAfter(el, referenceNode) {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
@@ -62,40 +56,34 @@ function init() {
         var ref = document.getElementById('a3o-len' + i);
         insertAfter(newEl, ref);
 
-
         function insertAfter(el, referenceNode) {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
         var newEl = document.createElement('input');
         newEl.classList.add("range");
         newEl.id = "range" + i;
+        newEl.setAttribute("type", "range");
         newEl.setAttribute("min", "1");
         newEl.setAttribute("value", "0");
         newEl.setAttribute("max", "100");
-        newEl.setAttribute("type", "range");
+        newEl.setAttribute("step", "any");
         var ref = document.getElementById('progress' + i);
         insertAfter(newEl, ref);
-        // function insertAfter(el, referenceNode) {
-        //     referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
-        // }
-        // var newEl = document.createElement('b');
-        // newEl.classList.add("www");
-        // newEl.id = "www" + i;
-        // var ref = document.getElementById('a3o-len' + i);
-        // insertAfter(newEl, ref);
-        
 
-        // // element that will be wrapped
-        // var el = document.getElementById("www" + i);
-        // // create wrapper container
-        // var wrapper = document.createElement('b');
-        // wrapper.id = "qq" + i;
-        // wrapper.classList.add("qq");
-        // // insert wrapper before el in the DOM tree
-        // el.parentNode.insertBefore(wrapper, el);
-        // // move el into wrapper
-        // wrapper.appendChild(el);
-
+        function insertAfter(el, referenceNode) {
+            referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+        }
+        var newEl = document.createElement('input');
+        newEl.classList.add("volume");
+        newEl.id = "volume" + i;
+        newEl.setAttribute("min", "0");
+        newEl.setAttribute("value", "1");
+        newEl.setAttribute("max", "1");
+        newEl.setAttribute("type", "range");
+        newEl.setAttribute("step", "any");
+        newEl.setAttribute("orient", "vertical");
+        var ref = document.getElementById('range' + i);
+        insertAfter(newEl, ref);
 
         (function() {
             var a3o = ad3[i];
@@ -103,10 +91,8 @@ function init() {
             var ct = document.getElementById("a3o-ct" + i);
             var dt = document.getElementById("a3o-len" + i);
             var pg = document.getElementById("progress" + i);
-            var input = document.getElementById("input" + i);
-            var ww = document.getElementById("www" + i);
-            var qq = document.getElementById("qq" + i);
             var range = document.getElementById("range" + i);
+            var vc = document.getElementById("volume" + i);
 
             function convertTime(inputSeconds) {
                 d = inputSeconds;
@@ -121,8 +107,9 @@ function init() {
                 }
             }
 
-
             btn.onclick = function() {
+                range.style.cursor = "pointer";
+
                 if (a3o.paused) {
                     a3o.play();
                     btn.innerHTML = "<img src='http://si.rockmynews.com/pause1.png' />";
@@ -136,49 +123,35 @@ function init() {
                     btn.alt = "Play";
                 }
 
-
                 a3o.addEventListener('loadedmetadata', function() {
                     dt.innerHTML = convertTime(a3o.duration);
                 });
 
-
                 a3o.ontimeupdate = function() {
                     ct.innerHTML = convertTime(a3o.currentTime);
-                    percent = (a3o.currentTime * 100)/a3o.duration ;
+                    percent = (a3o.currentTime * 100) / a3o.duration;
                     // ww.style.width= percent + "%";
                     range.value = pg.value = percent;
-                };
+                }
+                ;
 
-                // range.addEventListener("click", move);
-                // function move(e) {
-                //     a3o.pause();
-                //     var percent = e.offsetX / this.offsetWidth;
-                //     ww.style.width= (percent*100) + "%";
-                //     a3o.currentTime = percent * a3o.duration;
-                //     a3o.play();
-                // }
+                range.oninput = function() {
+                    pg.value = range.value;
+                    a3o.currentTime = (range.value / 100) * a3o.duration;
+                }
+                ;
 
-range.oninput  = function() {
- console.log(range.value);
-a3o.currentTime = (range.value/100) * a3o.duration;
+                vc.oninput = function() {
+                    a3o.volume = vc.value;
+                }
+                ;
 
-};
-
-
-            };
-        })();
+            }
+            ;
+        }
+        )();
 
     }
+
 }
 window.onload = init;
-
-
-// if (document.readyState === 'loading') {
-//     document.addEventListener('DOMContentLoaded', afterDOMLoaded);
-// } else {
-//     afterDOMLoaded();
-// }
-
-// function afterDOMLoaded() {
-//     //Everything that needs to happen after the DOM has initially loaded.
-// }
