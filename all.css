@@ -69,17 +69,8 @@
     background-color: white;
     border: 2px solid #e74c3c;
 cursor: pointer;
-    
-}
-
-.range:hover::-webkit-slider-thumb{
-      /*transform: scale(1.5);*/
-    width: 15px;
-    height: 15px;
-cursor: pointer;
 
 }
-
 progress[value] {
     width: 150px;
     height: 4px;
@@ -188,6 +179,12 @@ img {
     .volume {
         display: none;
     }
+
+
+	.range:hover::-webkit-slider-thumb{
+      transform: scale(2);
+	}
+
 }
 
 .volume {
