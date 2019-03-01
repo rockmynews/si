@@ -182,7 +182,9 @@ img {
 
 
 	.range:hover::-webkit-slider-thumb{
-      transform: scale(3);
+/*       transform: scale(3); */
+	height: 25px;
+	width: 25px;
 	}
 
 }
