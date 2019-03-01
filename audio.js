@@ -54,39 +54,34 @@ function init() {
         function insertAfter(el, referenceNode) {
             referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
         }
-        var newEl = document.createElement('b');
-        newEl.classList.add("www");
-        newEl.id = "www" + i;
+        var newEl = document.createElement('input');
+        newEl.id = "range" + i;
+        newEl.setAttribute("min", "1");
+        newEl.setAttribute("max", "100");
+        newEl.setAttribute("type", "range");
         var ref = document.getElementById('a3o-len' + i);
         insertAfter(newEl, ref);
+
+        // function insertAfter(el, referenceNode) {
+        //     referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+        // }
+        // var newEl = document.createElement('b');
+        // newEl.classList.add("www");
+        // newEl.id = "www" + i;
+        // var ref = document.getElementById('a3o-len' + i);
+        // insertAfter(newEl, ref);
         
 
-        // element that will be wrapped
-        var el = document.getElementById("www" + i);
-        // create wrapper container
-        var wrapper = document.createElement('b');
-        wrapper.id = "qq" + i;
-        wrapper.classList.add("qq");
-        // insert wrapper before el in the DOM tree
-        el.parentNode.insertBefore(wrapper, el);
-        // move el into wrapper
-        wrapper.appendChild(el);
-
-
-
-
-
-        // function convertTime(inputSeconds) {
-        //     var seconds = Math.floor(inputSeconds % 60)
-        //     if (seconds < 10) {
-        //         seconds = "0" + seconds
-        //     }
-        //     var minutes = Math.floor(inputSeconds / 60)
-        //     return minutes + ":" + seconds
-        // }
-
-                 // document.getElementById('a3o-len' + i).innerHTML = (store === "metadata") ? ad3[i].duration : "0:00";
-
+        // // element that will be wrapped
+        // var el = document.getElementById("www" + i);
+        // // create wrapper container
+        // var wrapper = document.createElement('b');
+        // wrapper.id = "qq" + i;
+        // wrapper.classList.add("qq");
+        // // insert wrapper before el in the DOM tree
+        // el.parentNode.insertBefore(wrapper, el);
+        // // move el into wrapper
+        // wrapper.appendChild(el);
 
 
         (function() {
@@ -98,6 +93,7 @@ function init() {
             var input = document.getElementById("input" + i);
             var ww = document.getElementById("www" + i);
             var qq = document.getElementById("qq" + i);
+            var range = document.getElementById("range" + i);
 
             function convertTime(inputSeconds) {
                 d = inputSeconds;
@@ -136,17 +132,25 @@ function init() {
                 a3o.ontimeupdate = function() {
                     ct.innerHTML = convertTime(a3o.currentTime);
                     percent = (a3o.currentTime * 100)/a3o.duration ;
-                    ww.style.width= percent + "%";
+                    // ww.style.width= percent + "%";
+                    range.value = percent;
                 };
 
-                qq.addEventListener("click", move);
-                function move(e) {
-                    var percent = e.offsetX / this.offsetWidth;
-                    ww.style.width= (percent*100) + "%";
+                // range.addEventListener("click", move);
+                // function move(e) {
+                //     a3o.pause();
+                //     var percent = e.offsetX / this.offsetWidth;
+                //     ww.style.width= (percent*100) + "%";
+                //     a3o.currentTime = percent * a3o.duration;
+                //     a3o.play();
+                // }
 
-                    a3o.currentTime = percent * a3o.duration;
+range.oninput  = function() {
+ console.log(range.value);
+a3o.currentTime = (range.value/100) * a3o.duration;
 
-                }
+};
+
 
             };
         })();
