@@ -138,6 +138,8 @@ function init() {
                 range.oninput = function() {
                     pg.value = range.value;
                     a3o.currentTime = (range.value / 100) * a3o.duration;
+                    ct.innerHTML = convertTime(a3o.currentTime);
+
                 }
                 ;
 
