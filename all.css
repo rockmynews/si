@@ -1,7 +1,7 @@
-
-.qq{position: absolute;
-	display: inline-block;
-	width: 150px;
+.qq {
+    position: absolute;
+    display: inline-block;
+    width: 150px;
     position: relative;
     z-index: 1;
     height: 7px;
@@ -19,157 +19,209 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-        padding: 0 8px;
-          background-color: #eee;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-  top: 5px;
-  left: 5%;
-  }
-.www{   
- border-right: 2px solid #fff;
+    padding: 0 8px;
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    top: 5px;
+    left: 5%;
+}
+
+.www {
+    border-right: 2px solid #fff;
     position: absolute;
     z-index: 1;
     left: 0;
     width: 0;
     height: 100%;
     background-color: #0890D2;
-
-
-    border-radius: 2px; 
-  }
-
-
-input[type="range"] {
-  /*display: block;*/
-  -webkit-appearance: none;
-  /*background-color: #bdc3c7;*/
-    background-color: transparent;
-
-  width: 150px;
-  height: 7.5px;
-  /*border-radius: 5px;*/
-  margin: 0 auto;
-  outline: 0;
-left: 25%;
-top: 56%;
-position: absolute;
-
+    border-radius: 2px;
 }
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background-color: #e74c3c;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  /*border: 2px solid white;*/
-  cursor: pointer;
-  transition: .3s ease-in-out;
-display: block;
 
-}​
-  input[type="range"]::-webkit-slider-thumb:hover {
+.range {
+    /*display: block;*/
+    -webkit-appearance: none;
+    /*background-color: #bdc3c7;*/
+    background-color: transparent;
+    width: 150px;
+    height: 7.5px;
+    /*border-radius: 5px;*/
+    margin: 0 auto;
+    outline: 0;
+    left: 25%;
+    top: 52%;
+    position: absolute;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: #e74c3c;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /*border: 2px solid white;*/
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    display: block;
+}
+
+​ .range::-webkit-slider-thumb:hover {
     background-color: white;
     border: 2px solid #e74c3c;
-  }
+}
 
- 
 progress[value] {
-  width: 150px;
-  height: 7px;
-  border: 0;
+    width: 150px;
+    height: 4px;
+    border: 0;
     -webkit-appearance: none;
-   appearance: none;
-position: absolute;
-left: 25%;
-top: 55%;
+    appearance: none;
+    position: absolute;
+    left: 25%;
+    top: 57%;
 }
 
 progress[value]::-webkit-progress-value {
-  background: #0890D2;
-
-    border-radius: 2px; 
+    background: #0890D2;
+    border-radius: 2px;
     background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
 progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
 /* environnement styles */
-
 .time-len {
-	position: absolute;
-	left: 33%;
+    position: absolute;
+    left: 33%;
 }
+
 .time-duration {
-	position: absolute;
-	left: 58%;
+    position: absolute;
+    left: 58%;
 }
+
 .a3o-wrap {
-	border: 1px solid #ccc;
-	max-width: 22em;
-	/*padding: 0.4em;*/
-	border-radius: 5em;
-	/*background: #b6b6b626;*/
-	background: #fff;
-	color: #000;
-	margin: 1em;
-	position: relative;
+    border: 1px solid #ccc;
+    max-width: 22em;
+    /*padding: 0.4em;*/
+    border-radius: 5em;
+    /*background: #b6b6b626;*/
+    background: #fff;
+    color: #000;
+    margin: 1em;
+    position: relative;
 }
+
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
 img {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
+
 .btn {
-	font-family: inherit;
-	color: #5d504f;
-	/*    margin: 5px;
+    font-family: inherit;
+    color: #5d504f;
+    margin: 5px;
     padding: 8px 10px;
-*/
-	border-radius: 5em;
-	background: #fff;
-	border: 1px solid rgba(18, 7, 6, .2);
-	display: inline-block;
-	height: 40px;
-	width: 40px;
+    border-radius: 5em;
+    background: #fff;
+    border: 1px solid rgba(18, 7, 6, .2);
+    display: inline-block;
+    height: 40px;
+    width: 40px;
 }
+
 .btn:hover {
-	/*background: #ccc;*/
-	color: #000;
-	cursor: pointer;
+    color: #000;
+    cursor: pointer;
 }
-.btn:focus,
-button,
-input:focus {
-	outline: 0
+
+.btn:focus, button, input:focus {
+    outline: 0
 }
+
 img {
-	max-width: 100%;
-	vertical-align: middle;
+    max-width: 100%;
+    vertical-align: middle;
 }
+
 @media only screen and (max-width: 600px) {
-	.a30-wrap {
-		padding: 0;
-		margin: 0.25em;
-		font-size: small;
-	}
-	body {
-		background: #eeeeee82;
-	}
-	.btn:hover {
-		background: #fff;
-	}
-	progress {
-		top: 20px;
-	}
-	.time-len,
-	.time-duration {
-		font-size: small;
-	}
+    .a30-wrap {
+        padding: 0;
+        margin: 0.25em;
+        font-size: small;
+    }
+
+    body {
+        background: #eeeeee82;
+    }
+
+    .btn:hover {
+        background: #fff;
+    }
+
+    progress {
+        top: 20px;
+    }
+
+    .time-len, .time-duration {
+        font-size: small;
+    }
+
+    .volume {
+        display: none;
+    }
+}
+
+.volume {
+    -webkit-appearance: none;
+    background: transparent;
+    position: absolute;
+    right: 17%;
+    top: 48%;
+    height: 5px;
+    transition: .3s ease-in-out;
+    width: 15px;
+}
+
+.volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('https://image.icons8.com/?id=32073&format=png&size=32&color=000000');
+    background-size: cover;
+    /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.volume::-moz-range-thumb {
+    width: 23px;
+    height: 25px;
+    border: 0;
+    background: url('https://image.icons8.com/?id=32073&format=png&size=32&color=000000');
+    background-size: cover;
+    /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.volume:hover {
+    width: 45px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    background: #eee;
+    border-radius: 5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
