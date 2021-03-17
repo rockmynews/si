@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8">
+  <title>sai</title>
+<style>
+html{
+  font-size: 16px;
+  line-height: 1.5;
+  background: #f7f3f3;
+
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+
+}
+*, *:before, *:after{
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    box-sizing: border-box;
+}
+
+.quote{
+  background: #eeeeee;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  width: 80%;
+  margin:0 auto;
+  border: 1px solid #ddd;
+  padding: 3rem;
+}
+.quote p {
+    text-rendering: optimizeLegibility;
+}
+strong {
+	display: none;
+}
+@media only screen and (max-width: 600px) {
+  .ArticleCopy {
+    border: none;
+    padding: 0;
+    width: 85%;
+  }
+}
+</style>
+<script>
+
+
+year = Math.floor(Math.random() * (2020 - 2012) + 2012);
+month = Math.floor(Math.random() * 12) + 1;
+day = Math.floor(Math.random() * 29) + 1 ;
+l = atob("aHR0cHM6Ly9hcGkuc3NzbWVkaWFjZW50cmUub3JnL3dlYi9zYWlpbnNwaXJlL2ZpbHRlckJ5P3B1Ymxpc2hEYXRlPQ==") + year + "-" + month + "-" + day;
+
+
+var getJSON = function(url, callback) {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function() {
+
+            callback(xhr.response);
+    };
+
+    xhr.send();
+};
+
+getJSON(l, function(data) {
+    var myObj, i, j, x = "";
+    myObj = data;
+    for (i in myObj.result) {
+        x += myObj.result[i].description ;
+    }
+
+    document.getElementById("main").innerHTML = x;
+});
+</script>
+</head>
+<body>
+<div class="center">
+  <p id="main" class="quote"></p>
+</div>
+</body>
+</html>
